@@ -1,0 +1,53 @@
+﻿@model IEnumerable<onlinepharmacy.Models.orders>
+
+@{
+    ViewData["Title"] = "myorders";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+<h1 style="color: #335e90; text-decoration: underline;  font:bold;">My Orders</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.productId)
+            </th>
+           @* <th>
+                @Html.DisplayNameFor(model => model.userid)
+            </th>*@
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.orderdate)
+            </th>
+            <th style="color: #335e90;"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td  style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.productId)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>*@
+            <td  style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td  style="color: #5eba24;">
+                @Html.DisplayFor(modelItem => item.orderdate)
+            </td>
+            <td>
+                <a class="btn btn-light" style=" color:#5eba24; text-decoration: underline;" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a  class="btn btn-light" style=" color:#5eba24; text-decoration: underline;" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a  class="btn btn-light" style=" color:#5eba24; text-decoration: underline;" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

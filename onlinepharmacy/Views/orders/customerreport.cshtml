@@ -1,0 +1,41 @@
+﻿@model IEnumerable<onlinepharmacy.Models.report>
+
+@{
+    ViewData["Title"] = "customerreport";
+}
+
+<h1 style="color: #335e90; text-decoration: underline;  font:bold;">Customers Reports</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th  style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th  style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.total)
+            </th>
+            <th style="color: #335e90;"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.total)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                <a class="btn btn-light" style=" color:#5eba24; text-decoration: underline;" asp-action="customerOrders" asp-route-id="@item.Id">Details</a> 
+                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

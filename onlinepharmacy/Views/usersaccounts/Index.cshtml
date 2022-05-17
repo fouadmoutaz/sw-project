@@ -1,0 +1,53 @@
+﻿@model IEnumerable<onlinepharmacy.Models.usersaccounts>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1  style="color: #335e90; text-decoration: underline;  font:bold;">Accounts</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.role)
+            </th>
+            <th style="color: #335e90;"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td style="color: #5eba24;">
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+           @* <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

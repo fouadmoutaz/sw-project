@@ -1,0 +1,46 @@
+﻿@model onlinepharmacy.Models.usersaccounts
+
+@{
+    ViewData["Title"] = "Create";
+}
+<body style="background:  white ">
+<div  style=" /*margin-left :450px;*/ margin-top :120px;  ">
+<h1 style="color: #335e90; text-decoration: underline;  font:bold;">Create Account</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label" style="color: #335e90;text-decoration: underline;">Name :</label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="email" class="control-label" style="color: #335e90;text-decoration: underline;"> Email :</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label" style="color: #335e90;text-decoration: underline;"> Password :</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="role" class="control-label"></label>
+                <input asp-for="role" class="form-control" />
+                <span asp-validation-for="role" class="text-danger"></span>
+            </div>*@
+            <div class="form-group" style="margin-top: 20px">
+                <input type="submit" value="Create" class="btn btn-light" style=" color:#5eba24; text-decoration: underline; " />
+            </div>
+        </form>
+    </div>
+</div>
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+</div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

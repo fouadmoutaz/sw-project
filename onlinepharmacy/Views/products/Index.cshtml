@@ -1,0 +1,53 @@
+﻿@model IEnumerable<onlinepharmacy.Models.product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color: #335e90; text-decoration: underline;  font:bold;">Products</h1>
+
+<p>
+    <a asp-action="Create"  class="btn btn-light" style=" color:#5eba24; text-decoration: underline; ">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayNameFor(model => model.category)
+            </th>
+            <th style="color: #335e90;"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="color: #335e90;text-decoration: underline;">
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td style="color: #335e90;">
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-light" style=" color:#5eba24; text-decoration: underline;">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-light" style=" color:#5eba24; text-decoration: underline;">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-light" style=" color:#5eba24; text-decoration: underline;">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

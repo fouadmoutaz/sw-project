@@ -1,0 +1,71 @@
+﻿@model onlinepharmacy.Models.product
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+<h1 style="color: #335e90; text-decoration: underline;  font:bold;">Create Order</h1>
+<hr />
+ <dl class="row">
+       @* <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>*@
+        <dt class = "col-sm-2" style="color: #335e90;text-decoration: underline;">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10"  style="color: #335e90;">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2" style="color: #335e90;text-decoration: underline;">
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+        <dd class = "col-sm-10" style="color: #335e90;">
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+        <dt class = "col-sm-2" style="color: #335e90;text-decoration: underline;">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10" style="color: #335e90;">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+    </dl> 
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @* <div class="form-group">
+                <label asp-for="productId" class="control-label"></label>
+                <input asp-for="productId" class="form-control" />
+                <span asp-validation-for="productId" class="text-danger"></span>
+            </div>*@
+            <input type="hidden" name="productId" value=@Model.Id />
+           @* <div class="form-group">
+                <label asp-for="userid" class="control-label"></label>
+                <input asp-for="userid" class="form-control" />
+                <span asp-validation-for="userid" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label  class="control-label" style="color: #335e90;text-decoration: underline;">Quantity</label>
+                <input name="quantity" class="form-control" />
+                @*<span asp-validation-for="quantity" class="text-danger"></span>*@
+            </div>
+           @* <div class="form-group">
+                <label asp-for="orderdate" class="control-label"></label>
+                <input asp-for="orderdate" class="form-control" />
+                <span asp-validation-for="orderdate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group" style="margin-top: 20px">
+                <input type="submit" value="Buy"  class="btn btn-light" style=" color:#5eba24; text-decoration: underline;" />
+                 <a   class="btn btn-light" style=" color:#5eba24; text-decoration: underline; margin-left: 145px;" asp-controller="Products" asp-action="catalogue">Back to Catalogue</a>
+            </div>
+        </form>
+    </div>
+</div>
+@*<div>
+    @*<a asp-action="Index">Back to List</a>
+   
+</div>*@
+
